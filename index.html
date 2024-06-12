@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "./style.css">
+    <title>Лабораторна 11</title>
+</head>
+
+<body onload="assignFunctionToCheckboxes();">
+    <div class="wrapper">
+        <header>
+            <img class="images" src="./img/me.jpg" alt = "myPhoto">
+            <div class="middle">
+                    <p>
+                    Тернопільський національний технічний університет ім. Івана Пулюя<br>
+                    Факультет ФІС<br>
+                    Кафедра комп’ютерних наук
+                    </p>
+                    <p>
+                        Лабораторна робота №11<br>
+                        Богач Максим Михайлович<br>
+                        група СП-31
+                    </p>
+                
+            </div>
+            <div class="log">
+                <img class="logos" src="./img/tntu-logo.png" alt = "tntuLogo">
+                <img class="logos" src="./img/FIS_logo.png" alt = "FIS">
+                <img class="logos" src="./img/KN_logo.png" alt = "KN">
+            </div>
+        </header> 
+
+        <div class="container">
+
+            <div class="task">
+                <form>
+                    <table>
+                        <tr>
+                            <td>
+                                <h2>Введіть пароль:</h2>
+                            </td>
+                            <td>
+                                <input type="password" id="pwd1" onkeyup="editPassword(this.id,'message',8,16);">
+                            </td>
+                        </tr>
+                    </table>
+                    <div>
+                        <p id="message" style="font-size: 2vh;"></p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="task">
+                    <img id="myImage" src="./img/me.jpg" usemap="#map" width="220" height="280" alt="Zoomable Map">
+                    <map name="map">
+                        <area shape="poly" coords="0,5,10,10,20,5" alt="Polygon" href="#">
+                        <area shape="rect" coords="50,50,150,150" alt="Rectangle" href="#">
+                        <area shape="circle" coords="200,200,50" alt="Circle" href="#">
+                    </map>
+
+                    <div class="buttons">
+                        <button onclick="zoomMap(1.5, 'myImage')">Збільшити</button>
+                        <button onclick="zoomMap(0.5, 'myImage')">Зменшити</button>
+                    </div>
+            </div>
+
+            <div class="task">
+                <h2>Вибір району та вулиці</h2>
+                <label for="regions">Райони:</label>
+                <select id="regions" onchange="showStreets(this.selectedIndex, 'streets');">
+                    <option>Виберіть район</option>
+                    <option>Всі райони</option>
+                    <option>БАМ</option>
+                    <option>Промисловий</option>
+                    <option>Дружба</option>
+                    <option>Сонячний</option>
+                    <option>Новий світ</option>
+                </select>
+                <label for="streets">Вулиці:</label>
+                <select id="streets" style="visibility:hidden;">
+                    <option></option>
+                </select>
+            </div>
+
+            <div class="task">
+                <table border="1" cellspacing="0" cellpadding="5" bordercolor="#000000">
+                    <tr>
+                        <td></td>
+                        <td>Назва книги</td>
+                        <td>Автор</td>
+                        <td>Ціна</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="goods" value="340"></td>
+                        <td>Хірург</td>
+                        <td>Тесс Герістен</td>
+                        <td>340</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="goods" value="532"></td>
+                        <td>Шерлок Холмс</td>
+                        <td>Артур Конан Дойл</td>
+                        <td>532</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="goods" value="419"></td>
+                        <td>Вбивство у "Східному експресі"</td>
+                        <td>Агата Крісті</td>
+                        <td>419</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="goods" value="168"></td>
+                        <td>Загадка Жовтої кімнати</td>
+                        <td>Гастон Леру</td>
+                        <td>168</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="goods" value="261"></td>
+                        <td>Міс Марпл</td>
+                        <td>Агата Крісті</td>
+                        <td>261</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="goods" value="214"></td>
+                        <td>Асистент</td>
+                        <td>Тесс Герістен</td>
+                        <td>214</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="goods" value="167"></td>
+                        <td>Ім'я троянди</td>
+                        <td>Умберто Еко</td>
+                        <td>167</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="goods" value="326"></td>
+                        <td>Ангели і демони</td>
+                        <td>Ден Браун</td>
+                        <td>326</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="goods" value="120"></td>
+                        <td>Чорний Даллія</td>
+                        <td>Джеймс Елрой</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="goods" value="150"></td>
+                        <td>Мальтійський сокіл</td>
+                        <td>Дашиель Гамметт</td>
+                        <td>150</td>
+                    </tr>
+                </table>
+                <p id="price"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
